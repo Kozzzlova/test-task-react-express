@@ -5,9 +5,7 @@ const app = express()
 const port = 5000
 
 app.use(express.json());
-app.use(cors({
-  origin: 'http://localhost:5173', // или адрес твоего фронтенда
-}));
+app.use(cors({}));
 
 const db = new Database('./bets.db');
 
