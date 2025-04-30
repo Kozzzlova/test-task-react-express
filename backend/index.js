@@ -38,6 +38,29 @@ app.get('/bets', (req, res) => {
   }
 });
 
+app.put('/bets/:betId', (req, res) => {
+  const betId = parseInt(req.params.betId);
+  const { status } = req.body;
+
+  if (!status) {
+    return res.status(400).json({ message: 'Status is required' });
+  }
+
+  try {
+    const bet = db.prepare('SELECT * FROM bets WHERE betId = ?').get(betId);
+
+    if (!bet) {
+      return res.status(404).json({ message: 'ID doesn`t exist' });
+    }
+
+    db.prepare('UPDATE bets SET status = ? WHERE betId = ?').run(status, betId);
+
+    res.json({ message: 'Bet updated successfully', updatedId: betId });
+  } catch (error) {
+    res.status(500).json({ message: 'Server failed' });
+  }
+});
+
 
 
 app.listen(port, () => {
