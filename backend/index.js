@@ -29,6 +29,14 @@ if (betCount === 0) {
   insert.run('user_0003', 'Tennis: Player E vs Player F', 25, 'Lost');
 }
 
+app.get('/bets', (req, res) => {
+  try {
+    const bets = db.prepare('SELECT * FROM bets').all();
+    res.json(bets);
+  } catch (error) {
+    res.status(500).json({ message: 'Server failed' });
+  }
+});
 
 
 
