@@ -1,4 +1,4 @@
-# Kickertech Test
+# React + Express Test Task
 
 This project consists of two parts: backend and frontend. Installation and startup instructions for each part are provided below.
 
