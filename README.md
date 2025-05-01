@@ -39,7 +39,7 @@ This project consists of two parts: backend and frontend. Installation and start
     pnpm start
     ```
 
-The backend will be available on port `5000` by default (unless specified otherwise).
+The backend will be available on port `3000` by default (unless specified otherwise).
 
 ### Frontend Setup
 
@@ -64,7 +64,7 @@ The frontend will be available on port `5173` (unless specified otherwise).
 
 ### Port Settings
 
-- Backend: http://localhost:5000/
+- Backend: http://localhost:3000/
 - Frontend: http://localhost:5173
 
 ## License
