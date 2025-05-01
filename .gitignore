@@ -13,6 +13,7 @@ backend/bets.db
 dist
 dist-ssr
 *.local
+.prettierrc
 
 # Editor directories and files
 .vscode/*
