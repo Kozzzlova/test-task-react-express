@@ -26,11 +26,15 @@ This project consists of two parts: backend and frontend. Installation and start
     ```shell
     cd ./backend
     ```
-2. Install dependencies:
+2. Rename the .env.example file to .env:
+    ```shell
+    cp .env.example .env
+    ```
+3. Install dependencies:
     ```bash
     pnpm install
     ```
-3. Start the backend:
+4. Start the backend:
     ```bash
     pnpm start
     ```
@@ -43,11 +47,15 @@ The backend will be available on port `5000` by default (unless specified otherw
     ```shell
     cd ./frontend
     ```
-2. Install dependencies:
+2. Rename the .env.example file to .env:
+    ```shell
+    cp .env.example .env
+    ```
+3. Install dependencies:
     ```bash
     pnpm install
     ```
-3. Start the frontend in development mode:
+4. Start the frontend in development mode:
     ```bash
     pnpm dev
     ```
@@ -56,8 +64,8 @@ The frontend will be available on port `5173` (unless specified otherwise).
 
 ### Port Settings
 
-- Backend: `http://localhost:5000`
-- Frontend: `http://localhost:5173`
+- Backend: http://localhost:5000/
+- Frontend: http://localhost:5173
 
 ## License
 
