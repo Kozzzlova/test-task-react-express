@@ -7,7 +7,6 @@ import { selectAnimationShow } from "../FallingIcons/model/selectAnimationShow"
 export const ToggleAnimation = () => {
   const dispatch = useAppDispatch()
   const animationShow = useAppSelector(selectAnimationShow)
-  
 
   const toggleAnimationHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setAnimation(e.currentTarget.checked))
@@ -15,7 +14,7 @@ export const ToggleAnimation = () => {
   return (
     <S.Toggle>
       <span>Toggle animation</span>
-      <S.CheckBox type="checkbox" onChange={toggleAnimationHandler} checked={ animationShow} />
+      <S.CheckBox type="checkbox" onChange={toggleAnimationHandler} checked={animationShow} />
     </S.Toggle>
   )
 }

@@ -7,12 +7,10 @@ export const useFilteredBets = () => {
   const selectedStatus = useAppSelector(selectBetsFilter)
   const { data: bets } = useGetBetsQuery()
 
-
   const filteredBets = useMemo(() => {
-
-  if (!bets) return []
-  if (selectedStatus === "All") return bets
-  return bets.filter((bet) => bet.status === selectedStatus)    
+    if (!bets) return []
+    if (selectedStatus === "All") return bets
+    return bets.filter((bet) => bet.status === selectedStatus)
   }, [bets, selectedStatus])
   return filteredBets
 }

@@ -7,7 +7,7 @@ import { selectAnimationShow } from "@/features/FallingIcons/model/selectAnimati
 
 function App() {
   const animationShow = useAppSelector(selectAnimationShow)
-  
+
   return (
     <S.Wrapper>
       <ToggleAnimation />
