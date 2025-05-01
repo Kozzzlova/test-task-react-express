@@ -6,7 +6,7 @@ This project consists of two parts: backend and frontend. Installation and start
 
 ### Requirements
 
-- **Node.js**: version 16.x or higher is required
+- **Node.js**:  >= 18.0.0 (recommended: LTS 18.17.0 or newer)
 
 - **pnpm**: the project uses [pnpm](https://pnpm.io/) for managing dependencies. If pnpm is not installed, you can install it using the following command:
 
@@ -46,7 +46,7 @@ The backend will be available on port `5000` by default (unless specified otherw
     pnpm dev
     ```
 
-The frontend will be available on port `5` (unless specified otherwise).
+The frontend will be available on port `5173` (unless specified otherwise).
 
 ### Port Settings
 
