@@ -7,12 +7,12 @@ import { selectAnimationShow } from "@/features/FallingIcons/model/selectAnimati
 
 function App() {
   const animationShow = useAppSelector(selectAnimationShow)
-  console.log(animationShow);
-  
+  console.log(animationShow)
+
   return (
     <S.Wrapper>
-      <ToggleAnimation/>
-      { animationShow && <FallingIcons />}
+      <ToggleAnimation />
+      {animationShow && <FallingIcons />}
       <S.Container>
         <S.Title> Bet Status Dashboard</S.Title>
         <BetTable />

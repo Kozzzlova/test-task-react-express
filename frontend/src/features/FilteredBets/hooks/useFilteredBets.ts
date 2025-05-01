@@ -1,5 +1,5 @@
 import { useAppSelector } from "@/shared/hooks/useAppSelector"
-import { selectBetsFilter } from "../model/selectors"
+import { selectBetsFilter } from "../model/selectBetsFilter"
 import { useGetBetsQuery } from "../api/betsApi"
 
 export const useFilteredBets = () => {

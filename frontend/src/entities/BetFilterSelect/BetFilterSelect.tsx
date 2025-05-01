@@ -1,9 +1,9 @@
-import { setStatusFilter } from "@/features/FilteredBets/model/betsSlice"
-import { selectBetsFilter } from "@/features/FilteredBets/model/selectors"
+import { selectBetsFilter } from "@/features/FilteredBets/model/selectBetsFilter"
 import { StatusFilter } from "@/features/FilteredBets/model/types"
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch"
 import { useAppSelector } from "@/shared/hooks/useAppSelector"
 import { S } from "./BetFilterSelect.styles"
+import { setStatusFilter } from "@/features/FilteredBets/model/betsSlice"
 
 const BetFilterSelect = () => {
   const dispatch = useAppDispatch()

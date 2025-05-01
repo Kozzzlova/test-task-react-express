@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import {  StatusFilter } from "./types"
+import { StatusFilter } from "./types"
 
 const initialState = {
   statusFilter: "All",
