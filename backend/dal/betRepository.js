@@ -30,6 +30,12 @@ const seedBets = () => {
     insert.run('user_0001', 'Football: Team A vs Team B', 75, 'Pending');
     insert.run('user_0002', 'Football: Team C vs Team D', 50, 'Won');
     insert.run('user_0003', 'Tennis: Player E vs Player F', 25, 'Lost');
+    insert.run('user_0004', 'Tennis: Player E vs Player F', 35, 'Won');
+    insert.run('user_0005', 'Tennis: Player E vs Player F', 45, 'Won');
+    insert.run('user_0003', 'Tennis: Player E vs Player F', 20, 'Lost');
+    insert.run('user_0004', 'Tennis: Player E vs Player F', 30, 'Won');
+    insert.run('user_0001', 'Tennis: Player E vs Player F', 60, 'Pending');
+    insert.run('user_0002', 'Tennis: Player E vs Player F', 70, 'Lost');
   }
 };
 
