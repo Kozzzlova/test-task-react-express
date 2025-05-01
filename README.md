@@ -22,7 +22,10 @@ This project consists of two parts: backend and frontend. Installation and start
 
 ### Backend Setup
 
-1. Go to the backend directory.
+1. Go to the backend directory:
+    ```shell
+    cd ./backend
+    ```
 2. Install dependencies:
     ```bash
     pnpm install
@@ -36,7 +39,10 @@ The backend will be available on port `5000` by default (unless specified otherw
 
 ### Frontend Setup
 
-1. Go to the frontend directory.
+1. Go to the frontend directory:
+    ```shell
+    cd ./frontend
+    ```
 2. Install dependencies:
     ```bash
     pnpm install
