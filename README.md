@@ -32,7 +32,7 @@ This project consists of two parts: backend and frontend. Installation and start
     ```
 3. Start the backend:
     ```bash
-    node src/index.js
+    pnpm start
     ```
 
 The backend will be available on port `5000` by default (unless specified otherwise).
