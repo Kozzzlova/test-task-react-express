@@ -3,10 +3,12 @@ import { S } from "./BetTable.styles"
 import BetFilterSelect from "../BetFilterSelect/BetFilterSelect"
 import { useState } from "react"
 
+export type SortType = null | 'asc' | 'desc'
+
 export const BetTable = () => {
-  const [sortType, setSortType] = useState<null | 'asc' | 'desc'>(null)
+  const [sortType, setSortType] = useState<SortType>(null)
   
-  const getNextSortType = (sortType: null | 'asc' | 'desc') => {
+  const getNextSortType = (sortType: SortType) => {
     switch (sortType) {
       case null:
         setSortType('asc')
@@ -28,7 +30,7 @@ export const BetTable = () => {
         <div>Amount</div>
         <div>
           <BetFilterSelect />
-          <button onClick={() => { console.log(sortType); getNextSortType(sortType) }}>sort</button>
+          <button onClick={() => { getNextSortType(sortType); console.log(sortType); }}>sort</button>
         </div>
         <div></div>
       </S.HeaderRow>

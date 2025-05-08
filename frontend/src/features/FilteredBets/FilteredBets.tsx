@@ -3,9 +3,10 @@ import { useUpdateBetMutation } from "./api/betsApi"
 import { useFilteredBets } from "./hooks/useFilteredBets"
 import { Bet, BetsStatus } from "./model/types"
 import { S } from "./FilteredBets.styles"
+import { SortType } from "@/entities/BetTable/BetTable"
 
 type Props = {
-  sortType: null | 'asc' | 'desc'
+  sortType: SortType
 }
 
 export const FilteredBets = ({sortType}: Props) => {
@@ -17,7 +18,7 @@ export const FilteredBets = ({sortType}: Props) => {
     updateStatus({ betId: id, status: nextStatus })
   }
 
-  const getSortedBets = (bets: Bet[], sortType: null | 'asc' | 'desc') => {
+  const getSortedBets = (bets: Bet[], sortType: SortType) => {
     switch (sortType) {
       case 'asc':
         return [...bets].sort((a, b) => {
