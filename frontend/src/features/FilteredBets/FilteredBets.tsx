@@ -17,7 +17,7 @@ export const FilteredBets = ({sortType}: Props) => {
     updateStatus({ betId: id, status: nextStatus })
   }
 
-  const nextSortHandler = (bets: Bet[], sortType: null | 'asc' | 'desc') => {
+  const getSortedBets = (bets: Bet[], sortType: null | 'asc' | 'desc') => {
     switch (sortType) {
       case 'asc':
         return [...bets].sort((a, b) => {
@@ -36,7 +36,7 @@ export const FilteredBets = ({sortType}: Props) => {
     }
   }
 
-  const sortedBets = nextSortHandler(filteredBets, sortType)
+  const sortedBets = getSortedBets(filteredBets, sortType)
   return (
     <>
       {sortedBets.map((bet) => {
