@@ -1,4 +1,3 @@
-// betsApi.ts
 import { baseAppApi } from "@/app/services/baseAppApi"
 import { Bet, BetsStatus } from "../model/types"
 
