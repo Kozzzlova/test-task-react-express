@@ -13,8 +13,13 @@ app.use(cors());
 seedBets();
 
 app.get('/bets', (req, res) => {
+  const { status } = req.query
+  
+  if (status && !['Won', 'Lost','Pending'].includes(status)) {
+    return res.status(404).json({message: `Invalid status ${status}`})
+  }
   try {
-    const bets = betService.getBets();
+    const bets = betService.getBets(status);
     res.json(bets);
   } catch {
     res.status(500).json({ message: 'Server failed' });

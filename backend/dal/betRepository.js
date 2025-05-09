@@ -11,8 +11,12 @@ db.prepare(`
   )
 `).run();
 
-const getAllBets = () => {
-  return db.prepare('SELECT * FROM bets').all();
+const getAllBets = (status) => {
+  if (status ) {
+    return db.prepare('SELECT * FROM bets WHERE status = ?').all(status)
+  } else {
+    return db.prepare('SELECT * FROM bets').all()
+  }
 };
 
 const getBetById = (betId) => {

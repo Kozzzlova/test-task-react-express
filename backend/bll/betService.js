@@ -1,7 +1,7 @@
 const betRepo = require('../dal/betRepository');
 
-const getBets = () => {
-  return betRepo.getAllBets();
+const getBets = (status) => {
+  return betRepo.getAllBets(status);
 };
 
 const updateBet = (betId, status) => {
