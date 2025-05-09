@@ -5,7 +5,7 @@ export const betsApi = baseAppApi.injectEndpoints({
   endpoints: (builder) => ({
     getBets: builder.query < Bet[], { status?: BetsStatus } >({
       query: ({status}) => ({
-          url: "bets/",
+          url: "bets",
           params: { status}
       }),
       providesTags: ["Bets"],
