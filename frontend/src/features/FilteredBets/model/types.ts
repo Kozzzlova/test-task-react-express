@@ -8,3 +8,5 @@ export type Bet = {
   amount: string
   status: BetsStatus
 }
+
+export type SortType = null | 'asc' | 'desc'
