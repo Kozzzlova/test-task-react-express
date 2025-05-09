@@ -11,12 +11,20 @@ db.prepare(`
   )
 `).run();
 
-const getAllBets = (status) => {
-  if (status ) {
-    return db.prepare('SELECT * FROM bets WHERE status = ?').all(status)
-  } else {
-    return db.prepare('SELECT * FROM bets').all()
+const getAllBets = ({ status, sortBy, sortOrder }) => {
+  let query = 'SELECT * FROM bets';
+  const params = [];
+
+  if (status) {
+    query += ' WHERE status = ?';
+    params.push(status);
   }
+
+  if (sortBy && sortOrder) {
+    query += ` ORDER BY ${sortBy} ${sortOrder.toUpperCase()}`;
+  }
+
+  return db.prepare(query).all(...params);
 };
 
 const getBetById = (betId) => {
