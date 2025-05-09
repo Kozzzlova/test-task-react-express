@@ -1,31 +1,17 @@
 import { FilteredBets } from "@/features/FilteredBets/FilteredBets"
 import { S } from "./BetTable.styles"
 import BetFilterSelect from "../BetFilterSelect/BetFilterSelect"
-import { useState } from "react"
+import { useGetNextSortType } from "@/shared/hooks/useGetNextSortType"
+import { useAppSelector } from "@/shared/hooks/useAppSelector"
+import { selectStatusSortType } from "@/features/FilteredBets/model/selectStatusSortType"
 
-export type SortType = null | 'asc' | 'desc'
 
 export const BetTable = () => {
-  const [sortType, setSortType] = useState<SortType>(null)
-  
-  const getNextSortType = () => {
-    let nextSortType: SortType;
-    switch (sortType) {
-      case null:
-        nextSortType = 'asc';
-        break;
-      case 'asc':
-        nextSortType = 'desc';
-        break;
-      case 'desc':
-        nextSortType = null;
-        break;
-      default:
-        nextSortType = null;
-    }
-    setSortType(nextSortType);
-    console.log(nextSortType); 
-  };
+  const statusSortType = useAppSelector(selectStatusSortType)
+  const checkStatusSortType = () => {
+    return statusSortType === 'asc' ? '⇧' : statusSortType === "desc" ? '⇩' : ''
+  }
+  const getNextSortType = useGetNextSortType()
   return (
     <S.Table>
       <S.HeaderRow>
@@ -36,13 +22,13 @@ export const BetTable = () => {
         <S.StatusCell>
           <S.SortButton onClick={getNextSortType}>
             <span> Sort by status</span>
-            <span>{ sortType === 'asc' ? '⇧' : sortType === "desc" ? '⇩' : ''}</span>
+            <span>{checkStatusSortType() }</span>
            </S.SortButton>
           <BetFilterSelect />
         </S.StatusCell>
         <div></div>
       </S.HeaderRow>
-      <FilteredBets sortType={sortType } />
+      <FilteredBets />
     </S.Table>
   )
 }

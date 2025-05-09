@@ -1,15 +1,11 @@
 import { getNextStatus } from "@/shared/lib/getNextStatus"
 import { useUpdateBetMutation } from "./api/betsApi"
 import { useFilteredBets } from "./hooks/useFilteredBets"
-import { Bet, BetsStatus } from "./model/types"
+import {  BetsStatus } from "./model/types"
 import { S } from "./FilteredBets.styles"
-import { SortType } from "@/entities/BetTable/BetTable"
+import { useGetSortedBets } from "./hooks/useGetSortedBets"
 
-type Props = {
-  sortType: SortType
-}
-
-export const FilteredBets = ({sortType}: Props) => {
+export const FilteredBets = () => {
   const [updateStatus] = useUpdateBetMutation()
   const filteredBets = useFilteredBets()
 
@@ -18,26 +14,8 @@ export const FilteredBets = ({sortType}: Props) => {
     updateStatus({ betId: id, status: nextStatus })
   }
 
-  const getSortedBets = (bets: Bet[], sortType: SortType) => {
-    switch (sortType) {
-      case 'asc':
-        return [...bets].sort((a, b) => {
-          if (a.status < b.status) return -1;
-          if (a.status > b.status) return 1;
-          return 0;
-        }); 
-      case 'desc':
-        return [...bets].sort((a, b) => {
-         if (a.status < b.status) return 1;
-         if (a.status > b.status) return -1;
-        return 0;
-        }); 
-      default:
-        return bets;
-    }
-  }
+  const sortedBets = useGetSortedBets(filteredBets)
 
-  const sortedBets = getSortedBets(filteredBets, sortType)
   return (
     <>
       {sortedBets.map((bet) => {
