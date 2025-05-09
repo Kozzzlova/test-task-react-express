@@ -3,8 +3,11 @@ import { Bet, BetsStatus } from "../model/types"
 
 export const betsApi = baseAppApi.injectEndpoints({
   endpoints: (builder) => ({
-    getBets: builder.query<Bet[], void>({
-      query: () => "bets",
+    getBets: builder.query < Bet[], { status?: BetsStatus } >({
+      query: ({status}) => ({
+          url: "bets/",
+          params: { status}
+      }),
       providesTags: ["Bets"],
     }),
     updateBet: builder.mutation<Bet, { betId: number; status: BetsStatus }>({
