@@ -67,6 +67,18 @@ The frontend will be available on port `5173` (unless specified otherwise).
 - Backend: http://localhost:3000/
 - Frontend: http://localhost:5173
 
+## Filtering Approaches
+
+This project supports two approaches to filtering bets:
+
+- **Client-side filtering** — implemented in the default `main` branch.
+- **Server-side filtering** — available in the [`move-filtering-to-server`] branch.
+
+To switch branches:
+
+```bash
+git checkout move-filtering-to-server
+
 ## License
 
 The project is licensed under the MIT License. See the LICENSE file for more details.
