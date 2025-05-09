@@ -77,7 +77,7 @@ This project supports two approaches to filtering bets:
 To switch branches:
 
 ```bash
-git checkout move-filtering-to-server
+git checkout feat/server-filtering-and-sorting
 ```
 
 ## License
