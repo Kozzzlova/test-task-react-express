@@ -78,6 +78,7 @@ To switch branches:
 
 ```bash
 git checkout move-filtering-to-server
+```
 
 ## License
 
