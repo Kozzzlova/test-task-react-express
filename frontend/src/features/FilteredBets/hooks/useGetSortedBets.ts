@@ -2,7 +2,7 @@ import { useAppSelector } from "@/shared/hooks/useAppSelector";
 import { Bet } from "../model/types";
 import { selectStatusSortType } from "../model/selectStatusSortType";
 
-export const useGetSortedBets = (bets: Bet[]) => {
+export const useGetSortedBets = (bets: Bet[] = []) => {
      const statusSortType = useAppSelector(selectStatusSortType)
     switch (statusSortType) {
       case 'asc':

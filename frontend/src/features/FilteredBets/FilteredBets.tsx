@@ -1,19 +1,20 @@
 import { getNextStatus } from "@/shared/lib/getNextStatus"
-import { useUpdateBetMutation } from "./api/betsApi"
-import { useFilteredBets } from "./hooks/useFilteredBets"
+import { useGetBetsQuery, useUpdateBetMutation } from "./api/betsApi"
 import {  BetsStatus } from "./model/types"
 import { S } from "./FilteredBets.styles"
 import { useGetSortedBets } from "./hooks/useGetSortedBets"
+import { useAppSelector } from "@/shared/hooks/useAppSelector"
+import { selectBetsFilter } from "./model/selectBetsFilter"
 
 export const FilteredBets = () => {
   const [updateStatus] = useUpdateBetMutation()
-  const filteredBets = useFilteredBets()
+  const selectedStatus = useAppSelector(selectBetsFilter)
+  const { data: filteredBets } = useGetBetsQuery({status: selectedStatus})
 
   const nextStatusHandler = (id: number, status: BetsStatus) => {
     const nextStatus = getNextStatus(status)
     updateStatus({ betId: id, status: nextStatus })
   }
-
   const sortedBets = useGetSortedBets(filteredBets)
 
   return (

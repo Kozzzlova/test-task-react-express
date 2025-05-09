@@ -1,5 +1,5 @@
 import { selectBetsFilter } from "@/features/FilteredBets/model/selectBetsFilter"
-import { StatusFilter } from "@/features/FilteredBets/model/types"
+import { BetsStatus } from "@/features/FilteredBets/model/types"
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch"
 import { useAppSelector } from "@/shared/hooks/useAppSelector"
 import { S } from "./BetFilterSelect.styles"
@@ -9,8 +9,8 @@ const BetFilterSelect = () => {
   const dispatch = useAppDispatch()
   const selectedStatus = useAppSelector(selectBetsFilter)
   const changeStatusHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch(setStatusFilter(e.currentTarget.value as StatusFilter))
-  }
+    const value = e.currentTarget.value;
+    dispatch(setStatusFilter(value === 'All' ? undefined : value as BetsStatus ));  }
 
   return (
     <S.Select value={selectedStatus} onChange={changeStatusHandler}>

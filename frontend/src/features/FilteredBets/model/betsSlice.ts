@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { SortType, StatusFilter } from "./types"
+import { BetsStatus, SortType } from "./types"
 
 type InitialState = {
-  statusFilter: StatusFilter,
+  statusFilter: BetsStatus | undefined,
   statusSortType: SortType
 }
 
 const initialState: InitialState = {
-  statusFilter: "All",
+  statusFilter: undefined,
   statusSortType: null
 }
 
@@ -15,7 +15,7 @@ const betsSlice = createSlice({
   name: "bets",
   initialState,
   reducers: {
-    setStatusFilter(state, action: PayloadAction<StatusFilter>) {
+    setStatusFilter(state, action: PayloadAction<BetsStatus | undefined>) {
       state.statusFilter = action.payload
     },
     setStatusSortType(state, action: PayloadAction<SortType>) {
