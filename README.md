@@ -72,7 +72,7 @@ The frontend will be available on port `5173` (unless specified otherwise).
 This project supports two approaches to filtering bets:
 
 - **Client-side filtering** — implemented in the default `main` branch.
-- **Server-side filtering** — available in the [`move-filtering-to-server`] branch.
+- **Server-side filtering** — available in the [`feat/server-filtering-and-sorting`] branch.
 
 To switch branches:
 
