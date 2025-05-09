@@ -22,14 +22,14 @@ export const FilteredBets = ({sortType}: Props) => {
     switch (sortType) {
       case 'asc':
         return [...bets].sort((a, b) => {
-          if (a.status < a.status) return 1;
-          if (a.status > b.status) return -1;
+          if (a.status < b.status) return -1;
+          if (a.status > b.status) return 1;
           return 0;
         }); 
       case 'desc':
         return [...bets].sort((a, b) => {
-         if (a.status < b.status) return -1;
-         if (a.status > b.status) return 1;
+         if (a.status < b.status) return 1;
+         if (a.status > b.status) return -1;
         return 0;
         }); 
       default:

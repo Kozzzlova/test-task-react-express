@@ -55,7 +55,32 @@ const HeaderRow = styled.div`
   }
 `
 
+const StatusCell = styled.div`
+display: flex;
+flex-direction: column;
+gap: 4px;
+align-items: stretch;
+
+`
+
+const SortButton = styled.button`
+ border-radius: 5px;
+  padding: 4px;
+  color: ${colors.primary};
+  transition: all .2s ease 0s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  &:hover,
+  &:active {
+    color: ${colors.secondary};
+  }
+`
+
 export const S = {
   Table,
   HeaderRow,
+  StatusCell,
+  SortButton
 }

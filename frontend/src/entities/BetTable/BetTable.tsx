@@ -8,19 +8,24 @@ export type SortType = null | 'asc' | 'desc'
 export const BetTable = () => {
   const [sortType, setSortType] = useState<SortType>(null)
   
-  const getNextSortType = (sortType: SortType) => {
+  const getNextSortType = () => {
+    let nextSortType: SortType;
     switch (sortType) {
       case null:
-        setSortType('asc')
-        return;
+        nextSortType = 'asc';
+        break;
       case 'asc':
-        setSortType('desc')
-        return;
+        nextSortType = 'desc';
+        break;
+      case 'desc':
+        nextSortType = null;
+        break;
       default:
-        setSortType(null);
-        return;
+        nextSortType = null;
     }
-  }
+    setSortType(nextSortType);
+    console.log(nextSortType); 
+  };
   return (
     <S.Table>
       <S.HeaderRow>
@@ -28,10 +33,13 @@ export const BetTable = () => {
         <div>User ID</div>
         <div>Event Name</div>
         <div>Amount</div>
-        <div>
+        <S.StatusCell>
+          <S.SortButton onClick={getNextSortType}>
+            <span> Sort by status</span>
+            <span>{ sortType === 'asc' ? '⇧' : sortType === "desc" ? '⇩' : ''}</span>
+           </S.SortButton>
           <BetFilterSelect />
-          <button onClick={() => { getNextSortType(sortType); console.log(sortType); }}>sort</button>
-        </div>
+        </S.StatusCell>
         <div></div>
       </S.HeaderRow>
       <FilteredBets sortType={sortType } />
