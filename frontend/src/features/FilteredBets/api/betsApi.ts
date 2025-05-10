@@ -1,12 +1,12 @@
 import { baseAppApi } from "@/app/services/baseAppApi"
-import { Bet, BetsStatus } from "../model/types"
+import { Bet, BetsStatus, SortBy, SortOrder } from "../model/types"
 
 export const betsApi = baseAppApi.injectEndpoints({
   endpoints: (builder) => ({
-    getBets: builder.query < Bet[], { status?: BetsStatus } >({
-      query: ({status}) => ({
+    getBets: builder.query < Bet[], { status?: BetsStatus; sortBy?: SortBy; sortOrder?: SortOrder  } >({
+      query: ({status, sortBy, sortOrder}) => ({
           url: "bets",
-          params: { status}
+          params: { status, sortBy, sortOrder}
       }),
       providesTags: ["Bets"],
     }),
