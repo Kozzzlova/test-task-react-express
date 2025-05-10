@@ -9,4 +9,5 @@ export type Bet = {
   status: BetsStatus
 }
 
-export type SortType = null | 'asc' | 'desc'
+export type SortOrder = 'asc' | 'desc' | undefined
+export type SortBy = 'status' | 'amount' | 'betId' | undefined
