@@ -2,24 +2,24 @@ import { getNextStatus } from "@/shared/lib/getNextStatus"
 import { useGetBetsQuery, useUpdateBetMutation } from "./api/betsApi"
 import {  BetsStatus } from "./model/types"
 import { S } from "./FilteredBets.styles"
-import { useGetSortedBets } from "./hooks/useGetSortedBets"
 import { useAppSelector } from "@/shared/hooks/useAppSelector"
 import { selectBetsFilter } from "./model/selectBetsFilter"
+import { selectSortOrder, selectSortBy } from "./model/selectSort"
 
 export const FilteredBets = () => {
   const [updateStatus] = useUpdateBetMutation()
   const selectedStatus = useAppSelector(selectBetsFilter)
-  const { data: filteredBets } = useGetBetsQuery({status: selectedStatus})
+  const selectedSortOrder = useAppSelector(selectSortOrder)
+  const selectedSortBy = useAppSelector(selectSortBy)
+  const { data: bets } = useGetBetsQuery({status: selectedStatus, sortBy: selectedSortBy, sortOrder: selectedSortOrder})
 
   const nextStatusHandler = (id: number, status: BetsStatus) => {
     const nextStatus = getNextStatus(status)
     updateStatus({ betId: id, status: nextStatus })
   }
-  const sortedBets = useGetSortedBets(filteredBets)
-
   return (
     <>
-      {sortedBets.map((bet) => {
+      {bets ? (bets.map((bet) => {
         return (
           <S.BodyRow key={bet.betId}>
             <S.Cell>{bet.betId}</S.Cell>
@@ -38,7 +38,7 @@ export const FilteredBets = () => {
             </S.Cell>
           </S.BodyRow>
         )
-      })}
+      })) : (<span>List is empty</span>)}
     </>
   )
 }
