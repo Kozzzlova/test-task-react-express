@@ -57,7 +57,7 @@ const HeaderRow = styled.div`
 
 const SortCell = styled.div`
 display: flex;
-gap: 4px;
+gap: 8px;
 align-items: center;
 justify-content: center;
 `
