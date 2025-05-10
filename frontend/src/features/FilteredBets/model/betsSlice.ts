@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { BetsStatus, SortType } from "./types"
+import { BetsStatus, SortBy, SortOrder } from "./types"
 
 type InitialState = {
   statusFilter: BetsStatus | undefined,
-  statusSortType: SortType
+  sortOrder: SortOrder
+  sortBy: SortBy
 }
 
 const initialState: InitialState = {
   statusFilter: undefined,
-  statusSortType: null
+  sortOrder: undefined,
+  sortBy: undefined
 }
 
 const betsSlice = createSlice({
@@ -18,11 +20,14 @@ const betsSlice = createSlice({
     setStatusFilter(state, action: PayloadAction<BetsStatus | undefined>) {
       state.statusFilter = action.payload
     },
-    setStatusSortType(state, action: PayloadAction<SortType>) {
-      state.statusSortType = action.payload
+    setSortOrder(state, action: PayloadAction<SortOrder>) {
+      state.sortOrder = action.payload
+    },
+    setSortBy(state, action: PayloadAction<SortBy>) {
+      state.sortBy = action.payload
     },
   },
 })
 
-export const { setStatusFilter, setStatusSortType } = betsSlice.actions
+export const { setStatusFilter, setSortOrder, setSortBy } = betsSlice.actions
 export default betsSlice
